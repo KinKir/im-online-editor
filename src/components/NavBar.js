@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapProps from '../store/map_to_props/index';
+import { mapStateToProps, mapDispatchToProps } from '../store/mapprops';
 import { Menu, Icon } from 'antd';
 
 const MenuItem = Menu.Item;
 
-@connect(mapProps.mapStateToProps, mapProps.mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 class NavBar extends Component {
     constructor(props) {
         super(props);
@@ -32,17 +32,17 @@ class NavBar extends Component {
     }
     render() {
         return (
-                <Menu mode='horizontal' onClick={this.menuClickHandler}>
-                    <MenuItem key='signout'>
-                        <Icon type="poweroff" theme="outlined" />sign out
+            <Menu mode='horizontal' onClick={this.menuClickHandler}>
+                <MenuItem key='signout'>
+                    <Icon type="poweroff" theme="outlined" />sign out
 </MenuItem>
-                    <MenuItem key='list'>
-                        <Icon type="mail" />list
+                <MenuItem key='list'>
+                    <Icon type="mail" />list
 </MenuItem>
-                    <MenuItem key='me'>
-                        <Icon type="user" theme="outlined" />me
+                <MenuItem key='me'>
+                    <Icon type="user" theme="outlined" />me
 </MenuItem>
-                </Menu>
+            </Menu>
 
         );
     }

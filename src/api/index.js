@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 let instance = axios.create({
-    baseURL: '/',
+    baseURL: '/api',
     timeout: 30e3,
 })
 
 export default {
     login({ name, password }) {
-        return instance('/api/login', {
+        return instance('/login', {
             method: "POST",
             data: {
                 name: name.trim(),
@@ -16,7 +16,7 @@ export default {
         });
     },
     register({ name, password }) {
-        return instance('/api/register', {
+        return instance('/register', {
             method: "POST",
             data: {
                 name: name.trim(),
@@ -25,7 +25,7 @@ export default {
         });
     },
     getUserList(name) {
-        return instance('/api/userlist', {
+        return instance('/userlist', {
             method: "GET",
             params: {
                 name: name.trim(),

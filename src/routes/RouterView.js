@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import routerMap from './map';
 import { connect } from 'react-redux';
-import mapProps from '../store/map_to_props/index';
+import { mapStateToProps, mapDispatchToProps } from '../store/mapprops';
 
-@connect(mapProps.mapStateToProps, mapProps.mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 class RouterView extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +13,7 @@ class RouterView extends Component {
         let path = this.props.location.pathname;
 
         // '/'-> '/home
-        if (path==='/') return <Redirect to='/home' />
+        if (path === '/') return <Redirect to='/home' />
 
         // if can match
         let matchRoute = routerMap.find(item => {

@@ -53,7 +53,8 @@ router.post("/login", function (req, res, ) {
                 res.cookie('token', Date.now(), {
                     domain: req.hostname,
                     path: '/',
-                    expires: new Date(Date.now() + 86400e3)
+                    expires: new Date(Date.now() + 86400e3),
+                    httpOnly: true,
                 });
                 res.json({
                     success: true,

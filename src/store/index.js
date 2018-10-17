@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import actions from './reducers/index';
+import actions from './reducers';
 
 let reducers = combineReducers(actions);
 let store = createStore(
