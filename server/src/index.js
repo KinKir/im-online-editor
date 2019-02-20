@@ -10,7 +10,6 @@ const CLIENT_PATH = path.resolve(ROOT_PATH, '../../');
 
 // Route index
 // app.get("/", function (req, res) {
-//     console.log(req);
 //     res.sendFile(path.resolve(CLIENT_PATH, './public/index.html'));
 // });
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import http from "../api/index";
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../store/mapprops';
-import { Form, Input, Button, Icon } from 'antd';
+import { Form, Input, Button, Icon, message } from 'antd';
 import '../assests/css/Login.css';
 
 const FormItem = Form.Item;
@@ -27,7 +27,10 @@ class Login extends Component {
                 })
                     .then(({ data }) => {
                         this.props.setToken(data.success);
-                        if (data.success) this.props.history.replace('/home');
+                        if (data.success) { this.props.history.replace('/home'); }
+                        else {
+                            message.error(data.message);
+                        }
                     });
             }
         });
